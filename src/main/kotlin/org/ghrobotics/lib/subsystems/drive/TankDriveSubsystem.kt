@@ -1,7 +1,7 @@
 package org.ghrobotics.lib.subsystems.drive
 
-import org.ghrobotics.lib.commands.ConditionCommand
 import org.ghrobotics.lib.commands.FalconSubsystem
+import org.ghrobotics.lib.commands.impl.WaitForCommand
 import org.ghrobotics.lib.mathematics.twodim.control.TrajectoryFollower
 import org.ghrobotics.lib.mathematics.twodim.geometry.Pose2dWithCurvature
 import org.ghrobotics.lib.mathematics.twodim.geometry.Rectangle2d
@@ -66,6 +66,6 @@ abstract class TankDriveSubsystem : FalconSubsystem("Drive Subsystem") {
             withinRegion(Source(region))
 
     fun withinRegion(region: Source<Rectangle2d>) =
-            ConditionCommand { region().contains(localization.robotPosition.translation) }
+            WaitForCommand { region().contains(localization.robotPosition.translation) }
 
 }

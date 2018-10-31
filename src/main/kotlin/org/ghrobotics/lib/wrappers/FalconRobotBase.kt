@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
+import org.ghrobotics.lib.commands.FalconCommandHandler
 import org.ghrobotics.lib.commands.FalconSubsystem
 import org.ghrobotics.lib.commands.SubsystemHandler
 import org.ghrobotics.lib.utils.*
@@ -89,6 +90,7 @@ abstract class FalconRobotBase : RobotBase() {
         initialize()
         SubsystemHandler.lateInit()
         initialized = true
+        FalconCommandHandler.internalStart()
         // Start up the default command
         println("[Robot] Initialized")
         // Update Commands
